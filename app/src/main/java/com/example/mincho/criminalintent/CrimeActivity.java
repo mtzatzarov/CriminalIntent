@@ -16,6 +16,8 @@ public class CrimeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crime);
 
+
+
         FragmentManager fm = getFragmentManager();
         // retrieve CrimeFragment
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);

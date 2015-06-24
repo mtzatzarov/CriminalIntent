@@ -96,7 +96,7 @@ public class CrimeFragment extends Fragment {
 
             }
         });
-
+        // android.text.format.DateFormat.format("yyy-mm-dd", new java.util.Date());
         mDateButton = (Button) v.findViewById(R.id.crime_date);
         mDateButton.setText(mCrime.getmDate().toString());
         mDateButton.setEnabled(false);
