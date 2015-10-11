@@ -2,22 +2,17 @@ package com.example.mincho.criminalintent;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.support.v4.app.FragmentActivity;
 
+/**
+ * Created by Mincho on 10/6/2015.
+ */
+public abstract class SingleFragmentActivity extends FragmentActivity{
 
-    public class CrimeActivity extends SingleFragmentActivity {
+    protected abstract Fragment createFragment();
 
-        @Override
-        protected Fragment createFragment() {
-
-            return new CrimeFragment();
-        }
-
-    }
-
-    /*@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
@@ -25,11 +20,12 @@ import android.view.MenuItem;
         // retrieve CrimeFragment
         Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
 
-        if (fragment == null){
-            fragment = new CrimeFragment();
+        if (fragment == null) {
+            fragment = createFragment();
             fm.beginTransaction()
                     .add(R.id.fragmentContainer, fragment)
                     .commit();
         }
+    }
 
-    } */
+}
