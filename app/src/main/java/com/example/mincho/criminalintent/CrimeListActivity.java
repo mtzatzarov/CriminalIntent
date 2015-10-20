@@ -1,9 +1,6 @@
 package com.example.mincho.criminalintent;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
 
 /**
  * Created by Mincho on 10/6/2015.
@@ -13,7 +10,7 @@ public class CrimeListActivity extends SingleFragmentActivity {
   @Override
     protected Fragment createFragment(){
 
-      return new CrimeListFragment();
+      return new CrimeFragment();
   }
 
   /*  @Override

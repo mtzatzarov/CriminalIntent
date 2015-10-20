@@ -7,10 +7,10 @@ import java.util.UUID;
  * Created by Mincho on 6/21/2015.
  */
 public class Crime {
-    private UUID mId;
-    private String mTitle;
-    private Date mDate;
-    private boolean mSolved;
+    public UUID mId;
+    public String mTitle;
+    public Date mDate;
+    public boolean mSolved;
 
     public UUID getmId() {
         return mId;
@@ -45,6 +45,8 @@ public class Crime {
         // Generates Unique identifier
         mId = UUID.randomUUID();
         mDate = new Date();
+        mTitle = new String();
+        mSolved = false;
     }
 
     @Override

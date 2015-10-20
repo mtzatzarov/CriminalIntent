@@ -31,23 +31,26 @@ public class CrimeListFragment extends ListFragment{
     }
 
     @Override
-    public void onResume(){
-        super.onResume();
-        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    public void onListItemClick(ListView l, View v, int position, long id){
+        // Get the crime from the adapter
+        Crime c = (Crime) (getListAdapter()).getItem(position);
+
+        // Start CrimePagerActivity with this crime
+        Intent i = new Intent(getActivity(),CrimePagerActivity.class);
+        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
+        startActivityForResult(i, 0);
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id){
-        Crime c = (Crime) (getListAdapter()).getItem(position);
-        // start CrimeActivity
-        Intent i = new Intent(getActivity(), CrimeActivity.class);
-        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getmId());
-        startActivity(i);
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
     }
+
+
 
     private class CrimeAdapter extends ArrayAdapter<Crime>{
         public CrimeAdapter(ArrayList<Crime> crimes){
-            super(getActivity(),0, crimes);
+            super(getActivity(), android.R.layout.simple_list_item_1, crimes);
         }
 
         @Override
